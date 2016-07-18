@@ -1,6 +1,15 @@
 
-var currentHash = '/';
-window.location.hash = currentHash;
+//var currentHash = '/';
+//window.location.hash = currentHash;
+
+currentHash = window.location.hash;
+if (currentHash !== '') {} else {
+  console.log('currentHash');
+};
+
+alert(currentHash);
+
+///////////////////////////////////////  Resuelve el problema de las entradas fuera de la home. dos situaciones
 
 $('.main').delegate('a', 'click', function () {
   var currentHash = $(this).attr('href');
