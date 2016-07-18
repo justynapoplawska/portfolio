@@ -5,7 +5,7 @@ $('.main').delegate('a', 'click', function() {
 });
 
 $(window).on('hashchange',function(){ 
-  if (window.location.hash !== "") {
+  if (window.location.hash !== '') {
     alert('content');
   } else {
     alert('welcome home');
