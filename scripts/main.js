@@ -11,8 +11,8 @@ $('.main').delegate('a', 'click', function () {
   return false;
 });
 
-$(".overlay__close").click(function () {
-  $(".overlay").fadeOut();
+$('.overlay__close').click(function () {
+  $('.overlay').fadeOut();
   $('html, body').removeClass('overflow-hidden');
 });
 
