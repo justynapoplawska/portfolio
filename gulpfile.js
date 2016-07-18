@@ -4,7 +4,7 @@ const gulpLoadPlugins = require('gulp-load-plugins');
 const browserSync = require('browser-sync');
 const del = require('del');
 const wiredep = require('wiredep').stream;
-
+const deploy = require('gulp-gh-pages');
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
@@ -83,6 +83,11 @@ gulp.task('fonts', () => {
     .concat('app/fonts/**/*'))
     .pipe(gulp.dest('.tmp/fonts'))
     .pipe(gulp.dest('dist/fonts'));
+});
+
+gulp.task('deploy', function () {
+  return gulp.src('.publish/**/*')
+    .pipe(deploy())
 });
 
 gulp.task('extras', () => {
