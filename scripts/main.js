@@ -1,9 +1,10 @@
 
-var currentHash = '';
-var nowClick;
+var currentHash = '/';
+window.location.hash = currentHash;
+
 $('.main').delegate('a', 'click', function () {
   var currentHash = $(this).attr('href');
-  window.location.hash = currentHash;
+  window.location.hash = "/" + currentHash;
   $('.overlay__header i').html($(this).find($('h5')).text());
   $('.overlay__content').load($(this).attr('href'));
   $('.overlay').fadeIn();
@@ -14,6 +15,8 @@ $('.main').delegate('a', 'click', function () {
 $('.overlay__close').click(function () {
   $('.overlay').fadeOut();
   $('html, body').removeClass('overflow-hidden');
+  window.location.hash = '/';
+  $('.overlay__content').empty();
 });
 
 $(window).on('hashchange', function () {
