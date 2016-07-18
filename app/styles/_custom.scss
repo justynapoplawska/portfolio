@@ -1,0 +1,193 @@
+
+// General
+.overflow-hidden {
+  overflow-y: hidden;
+}
+
+// Header
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding: 2rem 3rem 2rem;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.logo {
+  font-size: 2.8rem;
+}
+
+.info {
+  display: block;
+  list-style: none;
+  &__item {
+    display: block;
+    float: left;
+    margin-right: 3rem;
+    padding-top: .4rem;
+    &:last-child {
+      margin-right: 0;
+    }
+
+  }
+}
+
+
+// Works
+
+.main {
+  @include container;
+  max-width: 120rem;
+  padding-bottom: 10rem;
+}
+
+.box {
+  position: relative;
+  &--green {
+    background-color: $green;
+  }
+  &--blue {
+    background-color: $blue;
+  }
+
+  &--yellow {
+    background-color: $yellow;
+  }
+
+  &--front {
+    padding: 4rem !important;
+    transition: all 0.5s ease;
+
+    &--1 {
+      @include span(5);
+      @include push(1);
+      margin-top: 18rem;
+      height: 38rem;
+    }
+    &--2 {
+      @include span(3);
+      @include push(2);
+      margin-top: 33rem;
+      height: 40rem;
+    }
+    &--3 {
+      @include span(7);
+      @include push(3);
+      margin-top: 10.5rem;
+      height: 34rem;
+    }
+
+    &:hover {
+      top: -1rem;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    bottom: 8rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    &--relative {
+      position: relative;
+      bottom: 0;
+    }
+    img {
+      margin: 0 auto;
+    }
+  }
+}
+
+
+
+// Show work
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  z-index: 2;
+  overflow-y: scroll;
+
+  &__header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 2rem 3rem 2rem;
+    box-sizing: border-box;
+    z-index: 1;
+    background-color: $white;
+  }
+
+  &__content {
+    @include container;
+    max-width: 120rem;
+    padding-bottom: 10rem;
+    margin-top: 7rem;
+  }
+
+  &__close {
+    cursor: pointer;
+  }
+}
+
+.project {
+  &__header {
+    font-size: 3.6rem;
+    padding: 3rem 5rem;
+    float: left;
+    margin-bottom: 4rem;
+    h2 {
+      font-weight: 500;
+      font-size: 2.4rem;
+      line-height: 1.4;
+      padding-top: 0;
+      display: block;
+      float: left;
+      margin-bottom: 8rem;
+    }
+  }
+}
+
+
+// Typo
+
+
+.h5 {
+  font-weight: 800;
+  color: $black;
+  &--box {
+    letter-spacing: .25rem;
+    color: $gray;
+    display: inline-block;
+    padding: 0 0 0 2rem;
+    margin-bottom: .7rem;
+    &--subtitle {
+      color: $white;
+      font-size: 1.8rem;
+      letter-spacing: .2rem;
+    }
+  }
+}
+
+.txt {
+  &--green {
+    color: $green-text;
+  }
+}
+
+.lnk {
+  text-decoration: none;
+  &:link {
+    color: $black;
+  }
+  &:hover {
+    text-decoration: underline;
+    color: $black;
+    cursor: pointer;
+  }
+}
