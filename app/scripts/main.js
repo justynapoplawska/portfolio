@@ -3,7 +3,7 @@ $('.main').delegate('a', 'click', function() {
    window.location.hash = $(this).attr('href');
    return false;
 });
-  
+
 $(window).on('hashchange',function(){ 
   if (window.location.hash !== "") {
     alert('content');
