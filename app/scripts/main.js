@@ -8,6 +8,9 @@
   } else {
     var cleanHash = currentHash.replace('/','').replace('#','');
     $('.overlay__content').load(cleanHash);
+    var textTitle = $('.overlay__content').find('.project__header__title h2').text();
+    alert(textTitle);
+    $('.overlay__header i').html(textTitle);
     $('.overlay').fadeIn('slow');
     $('html, body').addClass('overflow-hidden');
   }; 
