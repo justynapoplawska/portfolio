@@ -9,14 +9,13 @@ if (currentHash === '' || currentHash === '/' || currentHash === '/#' || current
   var cleanHash = currentHash.replace('/', '').replace('#', '');
   $('.overlay__content').load(cleanHash);
   var textTitle = $('.overlay__content').find('.project__header__title h2').text();
-  alert(textTitle);
   $('.overlay__header i').html(textTitle);
-  $('.overlay').fadeIn('slow');
+  $('.overlay').fadeIn();
   $('html, body').addClass('overflow-hidden');
 };
 
 ///////////////////////////////////////  Resuelve el problema de las entradas fuera de la home. dos situaciones
-
+/////////////////////////////////////// buscar el titulo que está en el contenedor que enlaza al hash actual
 $('.main').delegate('a', 'click', function () {
   var currentHash = $(this).attr('href');
   window.location.hash = '/' + currentHash;
