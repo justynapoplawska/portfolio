@@ -3,11 +3,14 @@
 //window.location.hash = currentHash;
 
 currentHash = window.location.hash;
-if (currentHash !== '') {} else {
+if (currentHash === '' || currentHash === '/' || currentHash === '/#' || currentHash === '/#/') {
   console.log('currentHash');
+} else {
+  var cleanHash = currentHash.replace('/', '').replace('#', '');
+  $('.overlay__content').load(cleanHash);
+  $('.overlay').fadeIn('slow');
+  $('html, body').addClass('overflow-hidden');
 };
-
-alert(currentHash);
 
 ///////////////////////////////////////  Resuelve el problema de las entradas fuera de la home. dos situaciones
 
@@ -16,7 +19,7 @@ $('.main').delegate('a', 'click', function () {
   window.location.hash = '/' + currentHash;
   $('.overlay__header i').html($(this).find($('h5')).text());
   $('.overlay__content').load($(this).attr('href'));
-  $('.overlay').fadeIn("slow");
+  $('.overlay').fadeIn('slow');
   $('html, body').addClass('overflow-hidden');
   return false;
 });
