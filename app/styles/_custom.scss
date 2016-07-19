@@ -1,5 +1,9 @@
 
 // General
+
+em, cite, i {
+  font-family: $italic-font;
+}
 .overflow-hidden {
   overflow-y: hidden;
 }
@@ -9,10 +13,11 @@
   position: fixed;
   width: 100%;
   top: 0;
-  padding: 2rem 3rem 2rem;
+  padding: 2.5rem 3rem 2.5rem;
   box-sizing: border-box;
   z-index: 1;
-}
+  pointer-events: none;
+  }
 
 .logo {
   font-size: 2.8rem;
@@ -21,6 +26,7 @@
 .info {
   display: block;
   list-style: none;
+  pointer-events: auto;
   &__item {
     display: block;
     float: left;
@@ -57,7 +63,7 @@
 
   &--front {
     padding: 4rem !important;
-    transition: all 0.5s ease;
+    transition: all 1s ease 0s;
 
     &--1 {
       @include span(5);
@@ -80,6 +86,7 @@
 
     &:hover {
       top: -1rem;
+      transition: all 1s ease;
     }
   }
 
@@ -92,6 +99,29 @@
     &--relative {
       position: relative;
       bottom: 0;
+    }
+    &--inside {
+      left: auto;
+      right: auto; 
+    }
+    &--1 {
+      right: 10%;
+      bottom: 20%;
+      width: 100%;
+      img {
+        width: 38%;
+        float: right;
+      }
+    }
+
+    &--2 {
+      right: 16%;
+      bottom: 18%;
+      width: 50%;
+      img {
+        width: 38%;
+        float: right;
+      }
     }
     img {
       margin: 0 auto;
@@ -117,7 +147,7 @@
     position: fixed;
     width: 100%;
     top: 0;
-    padding: 2rem 3rem 2rem;
+    padding: 2.5rem 3rem 2.5rem;
     box-sizing: border-box;
     z-index: 1;
     background-color: $white;
@@ -126,8 +156,9 @@
   &__content {
     @include container;
     max-width: 120rem;
-    padding-bottom: 10rem;
-    margin-top: 7rem;
+    // padding-bottom: 10rem;
+    height: calc(100% - 7rem);
+    margin-top: 7.8rem;
   }
 
   &__close {
@@ -138,12 +169,23 @@
 .project {
   &__header {
     font-size: 3.6rem;
-    padding: 3rem 5rem;
+    padding: 5.3rem 9rem;;
     float: left;
+    height: 56rem;
     margin-bottom: 4rem;
-    h2 {
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    &__claim {
+      max-width: 40rem;
+      h2 {
+        font-size: 3.6rem;
+        color: $white;
+      }
+    }
+    span {
       font-weight: 500;
-      font-size: 2.4rem;
+      font-size: 2.2rem;
       line-height: 1.4;
       padding-top: 0;
       display: block;
@@ -161,23 +203,32 @@
   font-weight: 800;
   color: $black;
   &--box {
+    font-size: 2.2rem;
     letter-spacing: .25rem;
-    color: $gray;
     display: inline-block;
     padding: 0 0 0 2rem;
     margin-bottom: .7rem;
     &--subtitle {
-      color: $white;
-      font-size: 1.8rem;
+      font-size: 2.2rem;
       letter-spacing: .2rem;
     }
   }
 }
 
 .txt {
+  &--white {
+    color: $white;
+  } 
   &--green {
     color: $green-text;
   }
+  &--blue {
+    color: $blue-text;
+  }
+  &--yellow {
+    color: $yellow-text;
+  }
+
 }
 
 .lnk {

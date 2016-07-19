@@ -31,6 +31,7 @@ gulp.task('scripts', () => {
     .pipe($.babel())
     .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest('.tmp/scripts'))
+    .pipe(gulp.dest('dist/scripts'))
     .pipe(reload({stream: true}));
 });
 
@@ -107,7 +108,7 @@ gulp.task('serve', ['styles', 'scripts', 'fonts'], () => {
     notify: false,
     port: 9000,
     server: {
-      baseDir: ['.tmp', 'app'],
+      baseDir: ['.tmp', ' dist', 'app'],
       routes: {
         '/bower_components': 'bower_components'
       }
@@ -168,6 +169,7 @@ gulp.task('wiredep', () => {
       ignorePath: /^(\.\.\/)*\.\./
     }))
     .pipe(gulp.dest('app'));
+    
 });
 
 gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
