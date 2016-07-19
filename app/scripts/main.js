@@ -8,7 +8,7 @@
   } else {
     var cleanHash = currentHash.replace('/','').replace('#','');
     $('.overlay__content').load(cleanHash);
-    var textTitle = $('.overlay__content').find('.project__header__title h2').text();
+    var textTitle = $('a[href="' + cleanHash + '"]').find($('h5')).text();
     $('.overlay__header i').html(textTitle);
     $('.overlay').fadeIn();
     $('html, body').addClass('overflow-hidden');
