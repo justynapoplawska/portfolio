@@ -3,8 +3,8 @@
 //window.location.hash = currentHash;
 
 currentHash = window.location.hash;
-alert(currentHash);
-if (currentHash.lenght >= 3) {
+
+if (currentHash.length > 2) {
   var cleanHash = currentHash.replace('/', '').replace('#', '');
   $('.overlay__content').load(cleanHash);
   var textTitle = $('a[href="' + cleanHash + '"]').find($('h5')).text();
@@ -32,8 +32,7 @@ $('.main').delegate('a', 'click', function () {
   $('.overlay__header i').html($(this).find($('h5')).text());
   $('.overlay__content').load($(this).attr('href'));
   $('.main').append('<div class="box--transition"></div>');
-  $('.overlay').delay(200).fadeIn();
-  $('.overlay__header').delay(100).fadeIn();
+  $('.overlay').fadeIn();
   $('.box--transition').css('top', currentPositionTop).css('left', currentPositionLeft).css('width', currentWidth).css('height', currentHeight).css('background-color', currentColor);
   $('.box--transition').animate({
     top: '8rem',
@@ -41,8 +40,9 @@ $('.main').delegate('a', 'click', function () {
     width: mainWidth,
     height: '56rem'
   }, 300, function () {
-    $('.overlay__content').fadeIn('fast');
-    $('.box--transition').fadeOut();
+    $('.overlay__header').fadeIn('fast');
+    $('.overlay__content').show();
+    $('.box--transition').fadeOut('fast');
   });
 
   $('html, body').addClass('overflow-hidden');
