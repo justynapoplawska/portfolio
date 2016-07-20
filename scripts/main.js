@@ -3,9 +3,17 @@
 //window.location.hash = currentHash;
 
 currentHash = window.location.hash;
+cleanHash = currentHash.replace('/', '').replace('#', '');
 
 if (currentHash.length > 2) {
-  var cleanHash = currentHash.replace('/', '').replace('#', '');
+
+  $('.overlay__content').load(cleanHash, function (response, status, xhr) {
+    if (status == "error") {
+      var msg = "Sorry but there was an error: ";
+      $(this).html(msg + xhr.status + " " + xhr.statusText);
+    }
+  });
+
   $('.overlay__content').load(cleanHash);
   var textTitle = $('a[href="' + cleanHash + '"]').find($('h5')).text();
   $('.overlay__header i').html(textTitle);
