@@ -3,19 +3,19 @@
 //window.location.hash = currentHash;
 
 currentHash = window.location.hash;
-if (currentHash === '' || currentHash === '/' || currentHash === '/#' || currentHash === '/#/') {
-  console.log('currentHash');
-} else {
-  var cleanHash = currentHash.replace('/', '').replace('#', '');
-  $('.overlay__content').load(cleanHash);
-  var textTitle = $('a[href="' + cleanHash + '"]').find($('h5')).text();
-  //    alert(textTitle);
-  /////////////////////////////////////// CLOSE IS THERE IS NOT
 
-  $('.overlay__header i').html(textTitle);
-  $('.overlay').fadeIn();
-  $('html, body').addClass('overflow-hidden');
-};
+var cleanHash = currentHash.replace('/', '').replace('#', '');
+$('.overlay__content').load(cleanHash);
+var textTitle = $('a[href="' + cleanHash + '"]').find($('h5')).text();
+//    alert(textTitle);
+/////////////////////////////////////// CLOSE IS THERE IS NOT
+
+$('.overlay__header i').html(textTitle);
+$('.overlay__header').show();
+$('.overlay__content').show();
+
+$('.overlay').fadeIn();
+$('html, body').addClass('overflow-hidden');
 
 $('.main').delegate('a', 'click', function () {
 
@@ -42,7 +42,7 @@ $('.main').delegate('a', 'click', function () {
     width: mainWidth,
     height: '56rem'
   }, 300, function () {
-    $('.overlay__content').fadeIn();
+    $('.overlay__content').fadeIn('fast');
     $('.box--transition').fadeOut();
   });
 
